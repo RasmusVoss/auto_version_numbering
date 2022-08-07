@@ -1,0 +1,8 @@
+.coverage
+.vscode/
+__pycache__/
+assets/
+tmp/
+report.html
+test-results-unit.xml
+htmlcov/
