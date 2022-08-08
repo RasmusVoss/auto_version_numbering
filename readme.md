@@ -95,7 +95,7 @@ This will return a usable version number for all types of branches.
 steps{script { env.VERSION_NUMBER = getVersionNumber()}}
 def getVersionNumber(){
 	checkoutJenkinsScriptsSvnRepo()
-	return sh(script: 'python3 JenkinsScripts/common/get_version_number.py -d "${WORKSPACE}" -b ${BRANCH_NAME}', returnStdout: true).trim()
+	return sh(script: 'python3 get_version_number.py -d "${WORKSPACE}" -b ${BRANCH_NAME}', returnStdout: true).trim()
 }
 ```
 
@@ -240,7 +240,7 @@ These use-cases are covered by the unit-test below
 steps{script { env.VERSION_NUMBER = getVersionNumber()}}
 def getVersionNumber(next_marketing){
 	checkoutJenkinsScriptsSvnRepo()
-	return sh(script: "python3 JenkinsScripts/common/get_version_number.py --major_minor_patch ${next_marketing} -d "${WORKSPACE}" -b ${BRANCH_NAME}", returnStdout: true)
+	return sh(script: "python3 get_version_number.py --major_minor_patch ${next_marketing} -d "${WORKSPACE}" -b ${BRANCH_NAME}", returnStdout: true)
 }
 ```
 
@@ -303,7 +303,7 @@ Some projects only supports a shorter version number so you can use --branch_num
 steps{script { env.VERSION_NUMBER = getVersionNumber()}}
 def getVersionNumber(){
 	checkoutJenkinsScriptsSvnRepo()
-	return sh(script: 'python3 JenkinsScripts/common/get_version_number.py -l 4 -d "${WORKSPACE}" -b ${BRANCH_NAME}', returnStdout: true)
+	return sh(script: 'python3 get_version_number.py -l 4 -d "${WORKSPACE}" -b ${BRANCH_NAME}', returnStdout: true)
 }
 ```
 ```python
